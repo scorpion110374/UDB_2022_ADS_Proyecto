@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eduardo Trujillo\\Documents\\ChifungOneDrive\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj": {}
+    "C:\\Users\\Eduardo Trujillo\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduardo Trujillo\\Documents\\ChifungOneDrive\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj": {
+    "C:\\Users\\Eduardo Trujillo\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduardo Trujillo\\Documents\\ChifungOneDrive\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj",
+        "projectUniqueName": "C:\\Users\\Eduardo Trujillo\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj",
         "projectName": "Proyecto_Vesa",
-        "projectPath": "C:\\Users\\Eduardo Trujillo\\Documents\\ChifungOneDrive\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj",
+        "projectPath": "C:\\Users\\Eduardo Trujillo\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj",
         "packagesPath": "C:\\Users\\Eduardo Trujillo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduardo Trujillo\\Documents\\ChifungOneDrive\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\obj\\",
+        "outputPath": "C:\\Users\\Eduardo Trujillo\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Eduardo Trujillo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

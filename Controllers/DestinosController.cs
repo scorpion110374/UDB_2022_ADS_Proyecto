@@ -21,7 +21,7 @@ namespace Proyecto_Vesa.Controllers
         {
             //Paginacion
             var pageNumber = page ?? 1;
-            int pageSize = 4;
+            int pageSize = 8;
 
             //Listar Destinos
             ViewBag.Destinos = _db.Destinos.ToPagedList(pageNumber, pageSize);
@@ -30,6 +30,16 @@ namespace Proyecto_Vesa.Controllers
 
         // GET: DestinosController/Details/5
         public ActionResult Details(int id)
+        {
+            //Listar detalles de destinos
+            ViewBag.Destino = _db.Destinos.Where(d=> d.Id == id).SingleOrDefault();
+            //Array para galeria
+            ViewBag.Galeria = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            return View();
+        }
+
+        // GET: DestinosController/Promociones
+        public ActionResult Promociones()
         {
             return View();
         }

@@ -24,7 +24,7 @@ namespace Proyecto_Vesa.Models
         [Column(TypeName = "text"), Required]
         [DisplayName("Ubicación")]
         public string Ubicacion { get; set; }
-        [Column(TypeName = "varchar(100)"), Required]
+        [Column(TypeName = "text"), Required]
         [DisplayName("Dirección Mapa")]
         public string DireccionMapa { get; set; }
         [DisplayName("Fecha de Creación")]
