@@ -1,0 +1,100 @@
+﻿
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@{
+    ViewData["Title"] = "Destinos";
+}
+
+<!-- Sección donde va la imagen de cabecera para la página -->
+<div class="container banner text-center">
+    <div class="col-12">
+        <img src="~/img/banners/banner-destinos.jpg" alt="Nature" />
+    </div>
+</div>
+
+<div class="container fondoContainer">
+    <h2 class="text-center textColor">DESTINOS TURISTICOS</h2>
+    <div class="row">
+        @foreach (var destino in ViewBag.Destinos)
+        {
+            <div class="col-sm-12, col-md-6 col-lg-3  mb-4">
+                <div class="card card-lugares mr-3">
+                    <img src="img/covers/@(destino.Id).jpg" class="card-img-top" alt="@(destino.Nombre)">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@(destino.Nombre)</h5>
+                        <a href="SantaAna.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="paginationDiv fondoContainer">
+        @Html.PagedListPager((IPagedList)ViewBag.Destinos, page => Url.Action("Index", new { page = page }),
+        new X.PagedList.Mvc.Common.PagedListRenderOptions
+        {
+            DisplayItemSliceAndTotal = true,
+            ContainerDivClasses = new[] { "page-item" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+        })
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        //Corregir error en estilos de paginacion
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });
+
+
+        //Guardar Calificación
+        $(".estrella").on('click', function () {
+            let idPelicula = $(this).attr('idpelicula');
+            let ratPelicula = $(this).val();
+
+            //Mostrar mensaje de confirmacion
+            Swal.fire({
+                title: 'Esta seguro?',
+                text: "Esta acción no podra ser revertida!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, enviar calificación!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    //Hacer llamada a controlador
+                    $.ajax({
+                        url: '@Url.Action("GuardarCalificacion", "Peliculas")',
+                        type: "POST",
+                        data: { 'id': idPelicula, 'rating': ratPelicula },
+                        success: function (data) {
+                            location.reload();
+                        }
+                    })
+                }
+            })
+        })
+
+
+        //Filtrar Películas por género
+        $("#buscGenero").on('change', function () {
+            let genId = $(this).val();
+            $("#buscadorGenero").val(genId);
+            $("#buscadorGenero").click();
+        });
+
+        //Filtrar Películas por nombre
+        $("#busNombre").on('change', function () {
+            let buscNombre = $("#busNombre").val();
+            $("#buscadorNombre").val(buscNombre);
+            $("#buscadorNombre").click();
+            console.log(buscNombre);
+        });
+    </script>
+
+}
