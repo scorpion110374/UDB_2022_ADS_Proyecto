@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/flexslider.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <header>
@@ -32,12 +33,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Destinos" asp-action="Promociones">Promociones</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacto" asp-action="Contacto">Contactenos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
-                        </li>
+                        <!--Llamar elementos de menu para usuarios con rol"Admin"-->
+                        <partial name="_LoginAdminPartial.cshtml">
+                            <!---->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Contacto" asp-action="Contacto">Contactenos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="d-flex d-inline rounded-lg h-75" id="cart">
+                                    <a href="/destinos/carrito" class="btn btn-default" id="cartLogo">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                    <p class="pr-2">Items:<span class="quantityCart pl-1 font-weight-bold">0</span></p>
+                                </div>
+
+                            </li>
                     </ul>
                     <partial name="_LoginPartial.cshtml">
                 </div>
@@ -62,11 +75,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="~/lib/moment/moment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-<script  type="text/javascript">
+<script type="text/javascript">
 		// Mensajes de error
 		var mensaje = '@TempData["Mensaje"]';
 			if (mensaje != '')
@@ -84,5 +99,11 @@
 				title: mensajeError,
 				showConfirmButton: false,
 				timer: 1500
-			})
+            })
+
+		var mensajeCarrito = '@TempData["Carrito"]';
+        if (mensajeCarrito == 'Borrar Carrito')
+        {
+            localStorage.removeItem('listaCarritoDestinos');
+        }
 </script>

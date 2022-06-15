@@ -32,6 +32,24 @@
 
 @section Scripts {
     <script>
+        //Verificar totales de carrito
+        var carrito = JSON.parse(localStorage.getItem('listaCarritoDestinos'));
+        let cuentaCarrito = 0;
+        let totalCarrito = 0;
 
+        if (carrito) {
+
+            cuentaCarrito = carrito.length;
+
+            for (var i = 0; i < cuentaCarrito; i++) {
+                totalCarrito = totalCarrito + parseFloat(carrito[i].subTotal);
+            }
+
+            $('.quantityCart').html(cuentaCarrito);
+            $('#cart').addClass('backColor2');
+        } else {
+            $('.quantityCart').html(0);
+            $('#cart').removeClass('backColor2');
+        }
     </script>
 }

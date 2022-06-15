@@ -29,6 +29,9 @@ namespace Proyecto_Vesa.Models
         public string DireccionMapa { get; set; }
         [DisplayName("Fecha de Creación")]
         public DateTime Fecha { get; set; }
+        [Column(TypeName = "decimal(10,2)"), Required, DefaultValue(0)]
+        [DisplayName("Precio")]
+        public decimal Precio { get; set; }
         [DefaultValue(true)]
         public bool Activo { get; set; }
         [DisplayName("Calificación")]

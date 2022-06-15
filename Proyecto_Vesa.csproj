@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\moment-develop\**" />
+    <Content Remove="wwwroot\lib\moment-develop\**" />
+    <EmbeddedResource Remove="wwwroot\lib\moment-develop\**" />
+    <None Remove="wwwroot\lib\moment-develop\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Ventas\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.23" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.23" />

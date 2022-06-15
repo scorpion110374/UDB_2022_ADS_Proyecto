@@ -7,6 +7,10 @@
     font-size:large;
 }
 
+.container {
+    max-width:1300px !important;
+}
+
 body {
     background-color: #007bff;
 }
@@ -19,6 +23,12 @@ body {
     color: #fff50b
 }
 
+/*Back Color*/
+.backColor2, .backColor2 a {
+    background: #e58025;
+    color: white;
+}
+
 /*NavBar*/
 nav .navbar-nav li a {
     color: #fff50b !important;
@@ -29,11 +39,11 @@ nav .navbar-nav li a:hover {
 }
 
 nav .navbar-nav li button {
-    color: #fff50b !important;
+    color: white !important;
 }
 
 nav .navbar-nav li button:hover {
-    color: white !important;
+    color: #fff50b !important;
 }
 
 /*Carrusel*/
@@ -125,3 +135,26 @@ nav .navbar-nav li button:hover {
     padding: 0px 15px;
 }
 
+/* EStilos Icono Cart*/
+#cart{
+    padding:0px 5px 0px 0px;
+}
+#cart p {
+    padding-top:5px;
+    color: #fff50b;
+    font-size: 12px;
+}
+
+
+/*NumeroPersonas*/
+#numeroPersonas input {
+    height: 75px;
+    width:150px;
+    font-size: 50pt;
+    text-align:center;
+    padding:0;
+}
+
+/*Datepicker*/
+#ui-datepicker-div {
+    z-index: 10000 !important;

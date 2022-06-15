@@ -18,19 +18,77 @@
     <div class="row">
         @foreach (var destino in ViewBag.Destinos)
         {
-            <div class="col-sm-12, col-md-6 col-lg-3  mb-4">
+            <div class="col-sm-12, col-md-6 col-lg-4  mb-4">
                 <div class="card card-lugares mr-3">
                     <img src="img/destinos/@(destino.Id)/cover.jpg" class="card-img-top" alt="@(destino.Nombre)">
                     <div class="card-body text-center">
                         <h5 class="card-title">@(destino.Nombre)</h5>
-                        <a href="Destinos/Details/@(destino.Id)" class="btn btn-primary">Ver más</a>
+                        <div class="row justify-content-between">
+                            <a href="Destinos/Details/@(destino.Id)" class="btn btn-secondary">Ver más</a>
+                            <h5 class="bg-warning rounded-lg p-2">$ @(destino.Precio)</h5>
+                            <!-- Boton para abril modal -->
+                            <button class="btn btn-primary abrirModal" iddestino="@(destino.Id)" nombredestino="@destino.Nombre" precio="@destino.Precio" data-toggle="modal" data-target="#myModal">Comprar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         }
     </div>
-
-    <div class="paginationDiv fondoContainer">
+    <!--Modal para seleccionar fecha y enviar producto a carrito-->
+    <!-- Modal -->
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Seleccione Fecha:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Verifique y seleccione la fecha en que desea disfrutar de su paquete turístico. Los precios son por persona.</p>
+                    <div class="form-group border rounded-lg">
+                        <div class="row pl-5">
+                            @Html.Label("Iddestino", "IdDestino:", new { @class = "label font-weight-bold w-25 pt-2" })
+                            @Html.TextBox("modal_IdDestino", "", new { @class = "border-0 pl-5" })
+                        </div>
+                        <div class="row pl-5">
+                            @Html.Label("NombreDestino", "Destino:", new { @class = "label font-weight-bold w-25 pt-2" })
+                            @Html.TextBox("modal_NombreDestino", "", new { @class = "border-0 pl-5" })
+                        </div>
+                        <div class="row pl-5">
+                            @Html.Label("Precio", "Precio/Persona:", new { @class = "label font-weight-bold w-25 pt-2" })
+                            @Html.TextBox("modal_Precio", "", new { @class = "border-0 pl-5" })
+                            @Html.Hidden("modal_PrecioHidden")
+                            @Html.Hidden("fechaPaquete")
+                        </div>
+                    </div>
+                    <div class="row border rounded-lg">
+                        <div class="col-sm-6 pt-2 border rounded-lg">
+                            <div class="form-group">
+                                <div class='input-group datefield' id='datetimepicker1'>
+                                    <input type='text' class="form-control text-center"  id="datepicker"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-center border rounded-lg" id="numeroPersonas">
+                            <label>Personas que acompañaran:</label>
+                            <input required type="number" value="1" min="1" max="100" class=" border rounded-lg" id="personas" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrarModal">Close</button>
+                    <button class="btn btn-primary agregarCarrito">Enviar a Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="paginationDiv fondoContainer pt-4">
         @Html.PagedListPager((IPagedList)ViewBag.Destinos, page => Url.Action("Index", new { page = page }),
         new X.PagedList.Mvc.Common.PagedListRenderOptions
         {
@@ -47,54 +105,124 @@
         //Corregir error en estilos de paginacion
         $(document).ready(function () {
             $('ul.pagination > li.disabled > a').addClass('page-link');
-        });
 
-
-        //Guardar Calificación
-        $(".estrella").on('click', function () {
-            let idPelicula = $(this).attr('idpelicula');
-            let ratPelicula = $(this).val();
-
-            //Mostrar mensaje de confirmacion
-            Swal.fire({
-                title: 'Esta seguro?',
-                text: "Esta acción no podra ser revertida!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, enviar calificación!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-
-                    //Hacer llamada a controlador
-                    $.ajax({
-                        url: '@Url.Action("GuardarCalificacion", "Peliculas")',
-                        type: "POST",
-                        data: { 'id': idPelicula, 'rating': ratPelicula },
-                        success: function (data) {
-                            location.reload();
+            //Activar DatePicker
+            $(function () {
+                $("#datepicker").datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    onSelect: function(date, datepicker) {
+                        if (date != "") {
+                            $('#fechaPaquete').val(date);
                         }
-                    })
+                    }
+                });
+            });
+
+        });
+
+ 
+        //Verificar totales de carrito
+        var carrito = JSON.parse(localStorage.getItem('listaCarritoDestinos'));
+        let cuentaCarrito = 0;
+        let totalCarrito = 0;
+
+        if (carrito) {
+
+            cuentaCarrito = carrito.length;
+
+            for (var i = 0; i < cuentaCarrito; i++) {
+                totalCarrito = totalCarrito + parseFloat(carrito[i].subTotal);
+            }
+
+            $('.quantityCart').html(cuentaCarrito);
+            $('#cart').addClass('backColor2');
+        } else {
+            $('.quantityCart').html(0);
+            $('#cart').removeClass('backColor2');
+        }
+
+
+        //Enviar datos acampos ocultos de modal
+        $('.abrirModal').on('click', function () {
+            let idDestino = $(this).attr('iddestino');
+            let nombreDestino = $(this).attr('nombredestino');
+            let precioItem = $(this).attr('precio');
+
+            $('.modal-body #modal_IdDestino').val(idDestino);
+            $('.modal-body #modal_NombreDestino').val(nombreDestino);
+            $('.modal-body #modal_Precio').val("$ " + precioItem);
+            $('.modal-body #modal_PrecioHidden').val(precioItem);
+        });
+
+        //Agregar producto a Carrito de Compras
+        $('.agregarCarrito').on('click', function () {
+
+            if ($('#fechaPaquete').val().length == 0) {
+                Swal.fire('Seleccione una fecha por favor!')
+            }
+            else {
+                // Array para carrito de compras, si existe llenara array con elementos de LocalStorage
+                var name = localStorage.getItem('listaCarritoDestinos');
+                var listaProductosCarrito = [];
+
+                if (name) {
+                    listaProductosCarrito = JSON.parse(localStorage.getItem('listaCarritoDestinos'));
                 }
-            })
-        })
 
+                let idDestino = $('#modal_IdDestino').val();
+                let nombreDestino = $('#modal_NombreDestino').val();
+                let fechaPaquete = $('#fechaPaquete').val();
+                let precioItem = $('#modal_PrecioHidden').val();
+                let cantProducto = $('#personas').val();
+                let subTotal = parseFloat(precioItem) * parseFloat(cantProducto);
 
-        //Filtrar Películas por género
-        $("#buscGenero").on('change', function () {
-            let genId = $(this).val();
-            $("#buscadorGenero").val(genId);
-            $("#buscadorGenero").click();
+                Swal.fire({
+                    title: 'Esta seguro?',
+                    text: "Esta por agregar el destino: " + idDestino + " / " + nombreDestino + " al Carrito de Compras!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Sí, agregar a mi carrito!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        //Agregar producto a variable
+                        listaProductosCarrito.push({
+                            "id": idDestino,
+                            "nombre": nombreDestino,
+                            "fecha": fechaPaquete,
+                            "precio": precioItem,
+                            "cantidad": cantProducto,
+                            "subTotal": subTotal
+                        })
+
+                        //Enviar arreglo de carrito a variable de localStorage y actualizar totales de carrito
+                        localStorage.setItem('listaCarritoDestinos', JSON.stringify(listaProductosCarrito));
+                        //Actualizar totales de carrito
+                        $('.quantityCart').html(listaProductosCarrito.length);
+                        //Cambiar color a logo
+                        $('#cart').addClass('backColor2');
+                        $('#cerrarModal').click();
+
+                        Swal.fire(
+                            'Agregado!',
+                            'Producto agregado a carrito de compras.',
+                            'success'
+                        )
+                    }
+                })
+            }
         });
 
-        //Filtrar Películas por nombre
-        $("#busNombre").on('change', function () {
-            let buscNombre = $("#busNombre").val();
-            $("#buscadorNombre").val(buscNombre);
-            $("#buscadorNombre").click();
-            console.log(buscNombre);
-        });
+        //FormatDate
+        const formatDate = (date) => {
+            let d = new Date(date);
+            let month = (d.getMonth() + 1).toString().padStart(2, '0');
+            let day = d.getDate().toString().padStart(2, '0');
+            let year = d.getFullYear();
+            return [year, month, day].join('-');
+        }
     </script>
 
 }

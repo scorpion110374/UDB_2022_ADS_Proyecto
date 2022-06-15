@@ -891,6 +891,14 @@ C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.dll
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.pdb
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.genruntimeconfig.cache
-C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.csproj.AssemblyReference.cache
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Details.cshtml.g.cs
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Promociones.cshtml.g.cs
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Details.cshtml.g.cs
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Promociones.cshtml.g.cs
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginAdminPartial.cshtml.g.cs
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginAdminPartial.cshtml.g.cs
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Carrito.cshtml.g.cs
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Checkout.cshtml.g.cs
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.csproj.AssemblyReference.cache
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Ventas\Index.cshtml.g.cs

@@ -20,6 +20,8 @@ namespace Proyecto_Vesa.Data
         //entities
         public DbSet<Contacto> Contactos { get; set; }
         public DbSet<Destino> Destinos { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<VentaDetalle> VentaDetalles { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,7 +30,7 @@ namespace Proyecto_Vesa.Data
             modelBuilder.Entity<Destino>()
                 .HasData(
                 new Destino()
-                { 
+                {
                     Id = 1,
                     Nombre = "Volcán de Santa Ana",
                     Descripcion = "Volcán de Ilamatepec o Santa Ana, con una altitud de 2,381 metros sobre el nivel del mar, es el volcán más alto de " +
@@ -48,6 +50,7 @@ namespace Proyecto_Vesa.Data
                     " capacidad de infiltración y recarga acuífera con bosques en formación como sucesión primaria sobre colada volcánica.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15495.269403943099!2d-89.6294444!3d13.84999975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62c16156d6e997%3A0x2fd88a9ab0dbc675!2sVolc%C3%A1n%20de%20Santa%20Ana!5e0!3m2!1ses-419!2ssv!4v1653589254629!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -73,6 +76,7 @@ namespace Proyecto_Vesa.Data
                     " recarga acuífera con bosques en formación como sucesión primaria sobre colada volcánica.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18907.988373693042!2d-89.63263819999999!3d13.81365735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62c6ae5d0724cd%3A0x575417b5f2cc024b!2sVolcan%20de%20Izalco!5e1!3m2!1ses-419!2ssv!4v1653590216152!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -98,6 +102,7 @@ namespace Proyecto_Vesa.Data
                     "hacia El Malecón y siga hasta el kilómetro 42.Hay muchos rótulos que indican.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18933.772221654366!2d-89.3813889!3d13.49222195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7cd59f22c8da2b%3A0xc9cb9224ff2461d7!2sPlaya%20El%20Tunco!5e1!3m2!1ses-419!2ssv!4v1653590300412!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -132,6 +137,7 @@ namespace Proyecto_Vesa.Data
                     " turistas mensuales que visitan el lago.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37807.92262660518!2d-89.54761955!3d13.86320075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62dcd48bbf3581%3A0xcbb51df50ff589a9!2sLago%20de%20Coatepeque!5e1!3m2!1ses-419!2ssv!4v1653590348500!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -150,6 +156,7 @@ namespace Proyecto_Vesa.Data
                     Ubicacion = "El sitio arqueológico Joya de Cerén se ubica al sur del actual caserío con el mismo nombre en el municipio de San Juan Opico, La Libertad.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7748.5909908063095!2d-89.3599041!3d13.8212866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f63212ab199a6dd%3A0x51207fe999d8c593!2sJoya%20de%20Ceren!5e0!3m2!1ses-419!2ssv!4v1653590378443!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -170,6 +177,7 @@ namespace Proyecto_Vesa.Data
                     Ubicacion = "El cerro El Pital es una montaña transnacional, ubicada exactamente en la frontera entre El Salvador (Chalatenango) y Honduras.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15458.673462276234!2d-89.12600760000001!3d14.388589600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f63a22e2515544b%3A0x29d828ff57aed1dd!2sCerro%20El%20Pital!5e0!3m2!1ses-419!2ssv!4v1653590419048!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -188,6 +196,7 @@ namespace Proyecto_Vesa.Data
                     Ubicacion = "Capital de El Salvador",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15505.305056993278!2d-89.1943073!3d13.69867895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6330ebffdbfb45%3A0x513c506801a25f0e!2sCentro%20Hist%C3%B3rico%20de%20SS%2C%20San%20Salvador!5e0!3m2!1ses-419!2ssv!4v1653590454327!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
@@ -215,11 +224,12 @@ namespace Proyecto_Vesa.Data
                     " Tazumal fue abandonado definitivamente alrededor del año 1200 d.C.",
                     DireccionMapa = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3871.624372032057!2d-89.6795008!3d13.9809501!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7495b8397db2b9bf!2sSitio%20Arqueol%C3%B3gico%20El%20Tazumal!5e0!3m2!1ses-419!2ssv!4v1653590488480!5m2!1ses-419!2ssv",
                     Fecha = Convert.ToDateTime("2022-05-25"),
+                    Precio = Convert.ToDecimal(50),
                     Activo = true,
                     Calificacion = 0,
                     Puntuacón = 0
                 }
-                );
+                ) ;
          }
     }
 }

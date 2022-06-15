@@ -212,6 +212,9 @@ namespace Proyecto_Vesa.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("UserRole")
+                        .HasColumnType("nvarchar(15)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
