@@ -5,40 +5,43 @@
 }
 <h4>Formulario de Contacto</h4>
 <hr />
-<div class="row">
-    <div class="col-6">
-        <form asp-action="Contacto">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Asunto" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Asunto, ViewBag.listaTemas as List<SelectListItem>, "- Seleccione Tipo de Mensaje -", new { @class = "form-control" })
-                <span asp-validation-for="Asunto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mensaje" class="control-label"></label>
-                <textarea asp-for="Mensaje" class="form-control" style="Height:150px"></textarea>
-                <span asp-validation-for="Mensaje" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="hidden" asp-for="Fecha" value="@DateTime.Now" />
-                <input type="hidden" asp-for="Activo" value=true />
-                <input type="submit" value="Enviar mensaje" class="btn btn-success" />
-            </div>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-12 d-block">
+            <form asp-action="Contacto">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Asunto" class="control-label"></label>
+                    @Html.DropDownListFor(model => model.Asunto, ViewBag.listaTemas as List<SelectListItem>, "- Seleccione Tipo de Mensaje -", new { @class = "form-control" })
+                    <span asp-validation-for="Asunto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mensaje" class="control-label"></label>
+                    <textarea asp-for="Mensaje" class="form-control" style="Height:150px"></textarea>
+                    <span asp-validation-for="Mensaje" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="Fecha" value="@DateTime.Now" />
+                    <input type="hidden" asp-for="Activo" value=true />
+                    <input type="submit" value="Enviar mensaje" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6 col-lg-12 d-flex">
+            <div id="map_canvas" style="height: 450px; width:713px;"></div>
+        </div>
     </div>
-    <div class="col-6">
-        <div id="map_canvas" style="height: 450px; width:713px;"></div>
-    </div>
+
 </div>
 
 <script type="text/javascript">

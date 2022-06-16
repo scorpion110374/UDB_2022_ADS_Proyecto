@@ -400,7 +400,6 @@ C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.csproj.AssemblyReference.cache
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.AssemblyInfoInputs.cache
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.AssemblyInfo.cs
@@ -902,3 +901,7 @@ C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Checkout.cshtml.g.cs
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Proyecto_Vesa.csproj.AssemblyReference.cache
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Ventas\Index.cshtml.g.cs
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Carrito.cshtml.g.cs
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Destinos\Checkout.cshtml.g.cs
+C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\ADS901\ProyectoCatedra_Fase2\Proyecto_Vesa\obj\Debug\netcoreapp3.1\Razor\Views\Ventas\Index.cshtml.g.cs

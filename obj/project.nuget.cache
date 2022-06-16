@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n90X3RRqTVxEA/WfWBTZIpq1EhIqyPz/K8hEBRzkXEKIMcxGQZpU3vhjBKM/HbBfC+BVCfwct/osJDyID2nxTQ==",
+  "dgSpecHash": "ykFbk4plwNR1lYCOe9P+c3RJndzaqHtYjlNy5Y98z2kVTz/x+DvpcurluORFDoDWSp/0iX6ZTpcXMMsPNWybGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eduardo Trujillo\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj",
+  "projectFilePath": "C:\\Users\\Eduardo Trujillo\\Documents\\ChifungOneDrive\\OneDrive\\UDB\\2022\\2022-1\\ADS901\\ProyectoCatedra_Fase2\\Proyecto_Vesa\\Proyecto_Vesa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eduardo Trujillo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Eduardo Trujillo\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",
